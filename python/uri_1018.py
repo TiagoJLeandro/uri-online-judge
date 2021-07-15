@@ -10,12 +10,13 @@ Imprima o valor lido e, em seguida, a quantidade mínima de notas de cada tipo n
 """
 
 
-def calcular_menor_numero_de_notas_possiveis():
+def calcular_troco():
     valor = int(input())
+    print(valor)
     cedulas = [100, 50, 20, 10, 5, 2, 1]
     for cedula in cedulas:
         numero_de_cedulas = valor//cedula
         valor -= numero_de_cedulas * cedula
         print(f"{numero_de_cedulas} nota(s) de R$ {cedula},00")
 
-calcular_menor_numero_de_notas_possiveis()
+calcular_troco()
