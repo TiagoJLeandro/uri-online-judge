@@ -57,4 +57,3 @@ def mostrar_lista(lista):
 mostrar_lista(ordenar(entrada))
 print("")
 mostrar_lista(entrada)
-
