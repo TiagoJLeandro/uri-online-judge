@@ -19,16 +19,16 @@ class Cobaia:
     def __init__(self, quantidade=0, *, abrev, nome):
         self.nome = nome
         self.abrev = abrev
-        self.usados = quantidade
+        self._usados = quantidade
         Cobaia.especies[abrev] = self
     
     @property
     def quantidade(self):
-        return self.usados
+        return self._usados
 
     @quantidade.setter
     def add_quantidade(self, quantidade):
-        self.usados += quantidade
+        self._usados += quantidade
         Cobaia.cobaias_usadas += quantidade
 
     @classmethod
@@ -52,7 +52,7 @@ class Cobaia:
         quant_total = cls.cobaias_usadas
         for cobaia in cls.especies.values():
             nome = cobaia.nome
-            quant = cobaia.usados 
+            quant = cobaia.quantidade 
             porcent = quant / quant_total * 100
             msg = f"Percentual de {nome}: {round(porcent, 2):.2f} %"
             print(msg)
@@ -64,7 +64,7 @@ sapos = Cobaia(abrev='S', nome="sapos")
 
 for e in range(numero_de_experimentos := int(input(""))):
     quantidade, abrev = input('').split()
-    cobaia = Cobaia.especies[abrev]
+    cobaia = Cobaia.especies[abrev.upper()]
     cobaia.add_quantidade = int(quantidade)
 
 Cobaia.mostrar_total_de_cobaias()
