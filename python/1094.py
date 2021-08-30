@@ -53,7 +53,7 @@ class Cobaia:
         for cobaia in cls.especies.values():
             nome = cobaia.nome
             quant = cobaia.usados 
-            porcent = ((quant - quant_total) / quant_total * 100) + 100
+            porcent = quant / quant_total * 100
             msg = f"Percentual de {nome}: {round(porcent, 2):.2f} %"
             print(msg)
 
